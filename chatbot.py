@@ -15,16 +15,18 @@ from langchain.embeddings import OpenAIEmbeddings
 
 load_dotenv()
 
-SYSTEM_PROMPT = os.getenv('SYSTEM_PROMPT')
+SYSTEM_PROMPT = os.getenv('You are a cool, funny chatbot with a sarcastic edge. Keep replies entertaining but appropriate. You never get offended and always reply with witty comebacks or clever lines. Use emojis sparingly.
+')
 
-app = Celery('chatbot', broker=os.getenv('CELERY_BROKER_URL'))
+app = Celery('chatbot', broker=os.getenv('redis://:password@redis_host:6379/0
+'))
 
-TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+TELEGRAM_BOT_TOKEN = os.getenv('7276342660:AAGlnQqyD8ocjqDc9CLGbTwIlxbQJb41lWA')
 
 bot = telebot.TeleBot(TELEGRAM_BOT_TOKEN)
 
-OPENAI_API_KEY = os.getenv('OPEN_AI_KEY')
-MODEL_NAME = os.getenv('MODEL_NAME')
+OPENAI_API_KEY = os.getenv('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')
+MODEL_NAME = os.getenv('Ivan')
 
 embeddings = OpenAIEmbeddings(openai_api_key=OPENAI_API_KEY)
 
